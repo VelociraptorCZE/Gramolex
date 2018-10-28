@@ -24,7 +24,8 @@ export class Parser{
         lexemes.forEach(lexeme => {
             buffer = lexeme;
             this.graphemes.forEach(grapheme => {
-                let items = buffer.match(new RegExp(grapheme, "g"));
+                let items = buffer.match(new RegExp(grapheme, "g"))
+                || buffer.match(new RegExp(this.getGrapheme(grapheme), "g"));
                 if (items !== null){
                     items.forEach(item => {
                         buffer = buffer.replace(item, "");
@@ -48,6 +49,10 @@ export class Parser{
             phonemes:      phonemes,
             sentence:      sentence
         };
+    }
+
+    getGrapheme(grapheme){
+        return grapheme[0].toUpperCase() + grapheme.slice(1, grapheme.length);
     }
 
     getLexemes(sentence){
