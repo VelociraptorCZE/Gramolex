@@ -35,6 +35,7 @@ export class Core{
         this.correctAnswer = 0;
         this.timeout = false;
         this.data = {};
+        this.pickedSentences = [];
         this.elems = {
             name:     document.getElementById("js-name"),
             sentence: document.getElementById("js-sentence"),
@@ -61,13 +62,13 @@ export class Core{
         return document.querySelector(".alert--overlay");
     }
     init(){
+        let buffer = parser.newSentence(this.pickedSentences);
         this.inputs.lexemes.focus();
-        this.data = parser.newSentence();
+        this.pickedSentences.length === sentences.length-1 ? this.pickedSentences = [] : this.pickedSentences.push(buffer.sentenceId);
+        this.data = buffer.result;
         this.elems.sentence.innerText = this.data.sentence;
         this.elems.task.innerHTML = "<strong>Task:</strong> find all lexemes, graphemes and phonemes";
-        Object.values(this.inputs).forEach(input => {
-            input.value = "";
-        });
+        Object.values(this.inputs).forEach(input => input.value = "");
     }
     initListeners(){
         let events = [["keypress", "click"], [window, this.elems.submit]];
@@ -75,9 +76,7 @@ export class Core{
             if (Core.getAlertOverlay() && e.which === 13) {
                 Core.getAlertOverlay().remove();
                 this.timeout = true;
-                setTimeout(_ => {
-                    this.timeout = false
-                }, 2000);
+                setTimeout(_ => this.timeout = false, 2000);
             }
         });
         for (let i = 0; i < events[0].length; i++){
