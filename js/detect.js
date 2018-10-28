@@ -1,0 +1,1 @@
+navigator.userAgent.indexOf("Trident") !== -1 ? alert("You browser is not able to run this web app, try to download a better browser :)") : null;

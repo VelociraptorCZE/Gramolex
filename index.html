@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Gramolex beta v0.3</title>
+    <script src="./js/core.js" type="module"></script>
+    <script src="js/detect.js"></script>
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/alerts.css">
+</head>
+<body>
+
+<div id="js-intro" class="gramolex-intro-container">
+    <h1 class="gramolex-header">GRAMOLEX</h1>
+    <input type="text" placeholder="Your name" class="gramolex-input" id="js-input-name">
+    <button id="js-play-button" class="gramolex-button">Play</button>
+    <div class="gramolex-info">
+        App made with &lt;3 in JS by Šimon Raichl, 2018<br>
+        If you find an error or some kind of mistake, don't hesitate to open an issue on Github or contact me via <a href = "mailto:raichls44@gmail.com">the e-mail</a>.<br>
+        <strong>Disclaimer:</strong> Please note this is the beta version and the real numbers can be different - I reserve scale up to ~ ±3
+    </div>
+    <button id="js-parse-own-sentence" class="gramolex-button gramolex-show-button mt-2">Analyze own sentence</button>
+</div>
+
+<div id="js-task-container" class="gramolex-task-container">
+    <div id="js-upper-bar" class="gramolex-upper-bar">
+        <h5 id="js-score" class="gramolex-score">Score: 0</h5>
+        <h5 id="js-name" class="gramolex-name">nickname</h5>
+    </div>
+    <h2 id="js-sentence" class="gramolex-sentence-header">sentence</h2>
+    <h4 id="js-task" class="gramolex-sentence-task">task</h4>
+    <div id="js-input-container" class="gramolex-input-container">
+        <input type="number" min="0" max="35" placeholder="Number of lexemes" class="gramolex-input" id="js-input-lexemes">
+        <input type="number" min="0" max="200" placeholder="Number of graphemes" class="gramolex-input" id="js-input-graphemes">
+        <input type="number" min="0" max="200" placeholder="Number of phonemes" class="gramolex-input" id="js-input-phonemes">
+        <button id="js-submit" class="gramolex-button gramolex-show-button">Submit</button>
+    </div>
+</div>
+
+</body>
+</html>

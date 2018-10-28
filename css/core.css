@@ -1,0 +1,228 @@
+/**
+ * Gramolex
+ * Copyright (C) Simon Raichl 2018
+ * MIT License
+ * Use this as you want, share it as you want, do basically whatever you want with this :)
+ */
+
+*{
+    box-sizing: border-box;
+    text-align: center;
+}
+
+@keyframes color-change {
+    0%{
+        background: #980f0f;
+    }
+    33%{
+        background: #1f780a;
+    }
+    66%{
+        background: #0b0456;
+    }
+    100%{
+        background: #980f0f;
+    }
+}
+
+@keyframes clr-color-change {
+    0%{
+        color: #980f0f;
+    }
+    33%{
+        color: #1f780a;
+    }
+    66%{
+        color: #0b0456;
+    }
+    100%{
+        color: #980f0f;
+    }
+}
+
+@keyframes fade {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: .9;
+    }
+}
+
+@keyframes move-to-bottom {
+    0%{
+        margin-top: 1rem;
+    }
+    100%{
+        margin-top: 5.5rem;
+    }
+}
+
+@keyframes hide-intro-container {
+    0%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100%{
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+body{
+    animation: color-change 80s linear infinite;
+    font-family: Segoe UI, Verdana;
+    color: #fff;
+    overflow: hidden;
+    height: 100vh;
+}
+
+input, button{
+    display: block;
+}
+
+a{
+    color: #fff;
+}
+
+.alert--box-content{
+    color: #000;
+}
+
+.mt-2{
+    margin-top: 2rem !important;
+}
+
+.gramolex-header{
+    font-variant-caps: all-petite-caps;
+    font-size: 4rem;
+    margin-top: 3rem;
+    text-shadow: 2px 2px 3px #1a1a1a;
+    animation: move-to-bottom .8s forwards;
+}
+
+.gramolex-intro-container{
+    height: 100vh;
+}
+
+.gramolex-intro-container, .gramolex-sentence-show{
+    animation: fade 1s ease-in-out forwards;
+}
+
+.gramolex-intro-container-hide{
+    animation: hide-intro-container 1s ease-in-out forwards;
+}
+
+.gramolex-input{
+    font-size: 1.3rem;
+    margin: 1rem auto;
+    outline: none;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #fff;
+    width: 40%;
+    background: transparent;
+    color: #fff;
+    animation: move-to-bottom .9s forwards;
+}
+
+.gramolex-input::placeholder{
+    color: #fff;
+    opacity: .5;
+}
+
+.gramolex-input::-webkit-outer-spin-button, .gramolex-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.gramolex-button{
+    opacity: .85;
+    font-weight: bold;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    outline: none;
+    animation: clr-color-change 80s linear infinite;
+    background: #fff;
+    margin: auto;
+    transition: .5s;
+    height: 0;
+    padding: 0;
+    border: none;
+    width: 0;
+    cursor: default;
+}
+
+.gramolex-button:hover{
+    background: rgba(255, 255, 255, .5);
+}
+
+.gramolex-info{
+    animation: .5s move-to-bottom ease-in-out forwards;
+    font-size: .65rem;
+}
+
+.gramolex-show-button.gramolex-button{
+    cursor: pointer;
+    height: auto;
+    padding: 16px;
+    width: 40%;
+}
+
+.gramolex-sentence-header, .gramolex-sentence-task{
+    margin-top: 3rem;
+}
+
+.gramolex-task-container{
+    opacity: 0;
+    display: flex;
+    justify-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+}
+
+.gramolex-task-container > *{
+    width: 100vw;
+}
+
+.gramolex-input-container{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    opacity: 0;
+}
+
+.gramolex-input-container > .gramolex-input{
+    width: calc(33.3% - 1rem);
+    height: 48px;
+    margin: .5rem;
+}
+
+.gramolex-input-container > .gramolex-button{
+    width: calc(33.3% - 1rem) !important;
+    height: 64px;
+    margin: .5rem auto;
+}
+
+.gramolex-name, .gramolex-score{
+    margin: 1rem;
+}
+
+.gramolex-name{
+    margin-left: auto;
+}
+
+.gramolex-upper-bar{
+    display: flex;
+}
+
+@media only screen and (max-width: 480px) {
+    .gramolex-show-button.gramolex-button, .gramolex-input{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    .gramolex-input-container > .gramolex-button{
+        width: 95% !important;
+    }
+}
