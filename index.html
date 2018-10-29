@@ -3,9 +3,9 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width"/>
-    <title>Gramolex beta v0.3.3</title>
-    <script src="./js/core.js" type="module"></script>
-    <script src="js/detect.js"></script>
+    <title>Gramolex</title>
+    <script src="js/app/core.js" type="module"></script>
+    <script src="js/app/modules/detect.js"></script>
     <link rel="stylesheet" href="css/core.css">
     <link rel="stylesheet" href="css/alerts.css">
 </head>
@@ -16,9 +16,10 @@
     <input type="text" placeholder="Your name" class="gramolex-input" id="js-input-name">
     <button id="js-play-button" class="gramolex-button">Play</button>
     <div class="gramolex-info">
-        App made with &lt;3 in JS by Šimon Raichl, 2018<br>
-        If you find an error or some kind of mistake, don't hesitate to open an issue on Github or contact me via <a href = "mailto:raichls44@gmail.com">the e-mail</a>.<br>
-        <strong>Disclaimer:</strong> Please note this is the beta version and the real numbers can be different - I reserve scale up to ~ ±3
+        App made with &lt;3 in JS by <span id="js-author">$author</span>, 2018<br>
+        If you find an error or some kind of mistake, don't hesitate to <a href = "https://github.com/VelociraptorCZE/Gramolex/issues" target="_blank">open an issue on Github</a> or contact me via <a href = "mailto:raichls44@gmail.com">the e-mail</a>.<br>
+        <strong>Disclaimer:</strong> Please note this is the beta version and the real numbers can be different - I reserve scale up to ~ ±3<br>
+        Version: <span id="js-version">$version</span>
     </div>
     <button id="js-parse-own-sentence" class="gramolex-button gramolex-show-button mt-2">Analyze own sentence</button>
 </div>

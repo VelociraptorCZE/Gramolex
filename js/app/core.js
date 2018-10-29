@@ -5,12 +5,13 @@
  * Use this as you want, share it as you want, do basically whatever you want with this :)
  */
 
-import {Alert}       from "./alerts.js";
-import {Sentences}   from "./sentences.js";
+import {App}         from "./app.js";
+import {Alert}       from "../plugins/alerts.js";
+import {Sentences}   from "../data/sentences.js";
 import {Parser}      from "./parser.js";
 import {Intro}       from "./intro.js";
-import {Inputs}      from "./inputs.js";
-import {Validation}  from "./validation.js";
+import {Inputs}      from "./modules/inputs.js";
+import {Validation}  from "./modules/validation.js";
 import {OwnSentence} from "./ownSentence.js";
 
 /**
@@ -21,6 +22,10 @@ new Intro();
 
 let sentences = new Sentences().get();
 let parser = new Parser(sentences);
+let app = new App();
+app.setTitle(app.getInfo().name + " " + app.getInfo().version);
+app.setAuthor(app.getInfo().author);
+app.setVersion(app.getInfo().version);
 
 new OwnSentence();
 new Validation();

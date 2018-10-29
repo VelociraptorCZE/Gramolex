@@ -15,6 +15,6 @@ export class Graphemes{
             "ear", "or", "yr", "ore", "oar", "ar"];
     }
     getExceptions(){
-        return ["ce", "le", "se", "ye", "ze", "ge", "te", "et", "ve", "ti"];
+        return ["ce", "le", "se", "ye", "ze", "ge", "te", "et", "ve", "ti", "si"];
     }
 }

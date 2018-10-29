@@ -5,8 +5,8 @@
  * Use this as you want, share it as you want, do basically whatever you want with this :)
  */
 
-import {Graphemes}   from "./graphemes.js";
-import {RNG}         from "./rng.js";
+import {Graphemes}   from "../data/graphemes.js";
+import {RNG}         from "./modules/rng.js";
 
 export class Parser{
     constructor(sentences){

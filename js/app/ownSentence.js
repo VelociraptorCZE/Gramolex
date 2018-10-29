@@ -5,7 +5,7 @@
  * Use this as you want, share it as you want, do basically whatever you want with this :)
 */
 
-import {Alert}  from "./alerts.js";
+import {Alert}  from "../plugins/alerts.js";
 import {Core}   from "./core.js";
 import {Parser} from "./parser.js";
 
