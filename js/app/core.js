@@ -13,6 +13,8 @@ import {Intro}       from "./intro.js";
 import {Inputs}      from "./modules/inputs.js";
 import {Validation}  from "./modules/validation.js";
 import {OwnSentence} from "./ownSentence.js";
+import {Draw}        from "./draw.js";
+import {Canvas}      from "./modules/canvas.js";
 
 /**
  * MAIN
@@ -23,6 +25,7 @@ new Intro();
 let sentences = new Sentences().get();
 let parser = new Parser(sentences);
 let app = new App();
+let canvas = new Canvas().get();
 app.setTitle(app.getInfo().name + " " + app.getInfo().version);
 app.setAuthor(app.getInfo().author);
 app.setVersion(app.getInfo().version);
@@ -36,6 +39,7 @@ new Validation();
 
 export class Core{
     constructor(){
+        new Draw();
         this.score = 0;
         this.correctAnswer = 0;
         this.timeout = false;
@@ -67,6 +71,7 @@ export class Core{
         return document.querySelector(".alert--overlay");
     }
     init(){
+        canvas.context.clearRect(0, 0, 2000, 200);
         let buffer = parser.newSentence(this.pickedSentences);
         this.inputs.lexemes.focus();
         this.pickedSentences.length === sentences.length-1 ? this.pickedSentences = [] : this.pickedSentences.push(buffer.sentenceId);

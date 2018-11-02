@@ -93,6 +93,13 @@ a{
     margin-top: 2rem !important;
 }
 
+.gramolex-canvas{
+    border-radius: 5px;
+    border-bottom: 1px solid #fff;
+    margin: -10% auto auto auto;
+    width: 2000px !important;
+}
+
 .gramolex-header{
     font-variant-caps: all-petite-caps;
     font-size: 4rem;
@@ -218,6 +225,10 @@ a{
 @media only screen and (max-width: 480px) {
     .gramolex-show-button.gramolex-button, .gramolex-input{
         width: 80%;
+    }
+
+    .gramolex-canvas{
+        margin-top: -25%;
     }
 }
 

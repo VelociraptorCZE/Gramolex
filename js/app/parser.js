@@ -45,13 +45,9 @@ export class Parser{
                     });
                 }
             });
-            buffer.split("").forEach(char => {
-                graphemes.push(char);
-            });
+            buffer.split("").forEach(char => graphemes.push(char));
         });
-        graphemes.forEach(grapheme => {
-            grapheme === "x" ? phonemes++ : null;
-        });
+        graphemes.forEach(grapheme => grapheme === "x" ? phonemes++ : null);
         phonemes += graphemes.length;
         return {
             lexemes:       lexemes.length,
@@ -64,7 +60,6 @@ export class Parser{
     }
 
     getLexemes(sentence){
-        sentence = sentence.replace(/[:;?!,<>\/()$@#&*+{}\-]|[0-9]/g, "").replace(/'/g, " ");
-        return sentence[sentence.length-1] === "." ? sentence.slice(0, sentence.length-1).split(" ") : sentence.split(" ");
+        return sentence.replace(/[:;?!,<>\/()$@#&*+{}\-.]|[0-9]/g, "").replace(/'/g, " ").split(" ");
     }
 }
