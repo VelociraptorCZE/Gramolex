@@ -177,6 +177,7 @@ a{
 
 .gramolex-sentence-header, .gramolex-sentence-task{
     margin-top: 3rem;
+    text-shadow: 2px 2px 3px #1a1a1a;
 }
 
 .gramolex-task-container{
