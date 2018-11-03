@@ -1,3 +1,10 @@
+/**
+ * Gramolex
+ * Copyright (C) Simon Raichl 2018
+ * MIT License
+ * Use this as you want, share it as you want, do basically whatever you want with this :)
+ */
+
 import {Canvas} from "./modules/canvas.js";
 
 let canvasScope = new Canvas();
@@ -28,10 +35,12 @@ export class Draw {
 
     draw(e, touch){
         if (active || touch){
-            try {
-                let rect = document.body.getBoundingClientRect();
-                let x = e.offsetX || e.targetTouches[0].clientX;
-                let y = e.offsetY || e.targetTouches[0].clientY - rect.height / 7;
+            try{
+                let touchCoords = e.targetTouches[0];
+                let yTouch = touchCoords.clientY - 130;
+                console.log(yTouch);
+                let x = e.offsetX || touchCoords.clientX;
+                let y = e.offsetY || yTouch;
                 canvas.context.beginPath();
                 canvas.context.arc(x, y, 3, 0, Math.PI * 2);
                 canvas.context.fillStyle = "#00a";
