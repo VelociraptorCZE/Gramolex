@@ -101,7 +101,7 @@ a{
 
 .gramolex-canvas-container{
     overflow: hidden;
-    margin: -20% auto auto auto;
+    margin: -10% auto auto auto;
 }
 
 .gramolex-header{
@@ -225,6 +225,12 @@ a{
 
 .gramolex-upper-bar{
     display: flex;
+}
+
+@media only screen and (max-width: 1280px) {
+    .gramolex-canvas-container{
+        margin-top: -20%;
+    }
 }
 
 @media only screen and (max-width: 480px) {
