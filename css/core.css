@@ -95,13 +95,15 @@ a{
 
 .gramolex-canvas{
     border-radius: 5px;
-    border-bottom: 1px solid #fff;
     width: 2000px !important;
 }
 
 .gramolex-canvas-container{
     overflow: hidden;
-    margin: -10% auto auto auto;
+    position: absolute;
+    height: 0;
+    top: 0;
+    left: 0;
 }
 
 .gramolex-header{
@@ -233,19 +235,9 @@ a{
     display: flex;
 }
 
-@media only screen and (max-width: 1280px) {
-    .gramolex-canvas-container{
-        margin-top: -20%;
-    }
-}
-
 @media only screen and (max-width: 480px) {
     .gramolex-show-button.gramolex-button, .gramolex-input{
         width: 80%;
-    }
-
-    .gramolex-canvas-container{
-        margin-top: -60%;
     }
 }
 

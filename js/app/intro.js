@@ -10,13 +10,14 @@ import {Core} from "./core.js"
 export class Intro{
     constructor(){
         this.elems = {
-            container:      document.getElementById("js-intro"),
-            taskContainer:  document.getElementById("js-task-container"),
-            inputContainer: document.getElementById("js-input-container"),
-            play:           document.getElementById("js-play-button"),
-            sentence:       document.getElementById("js-sentence"),
-            name:           document.getElementById("js-name"),
-            inputName:      document.getElementById("js-input-name")
+            container:       document.getElementById("js-intro"),
+            taskContainer:   document.getElementById("js-task-container"),
+            inputContainer:  document.getElementById("js-input-container"),
+            play:            document.getElementById("js-play-button"),
+            sentence:        document.getElementById("js-sentence"),
+            name:            document.getElementById("js-name"),
+            inputName:       document.getElementById("js-input-name"),
+            canvasContainer: document.getElementById("js-canvas-container")
         };
         this.playButtonClass = "gramolex-show-button";
         this.elems.inputName.focus();
@@ -52,6 +53,7 @@ export class Intro{
                         this.elems.name.innerText = this.elems.inputName.value;
                         this.elems.container.remove();
                         this.elems.sentence.parentElement.classList.add("gramolex-sentence-show");
+                        this.elems.canvasContainer.style.height = "fit-content";
                         new Core().init();
                     }, 1000);
                 }

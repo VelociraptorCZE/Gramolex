@@ -36,11 +36,8 @@ export class Draw {
     draw(e, touch){
         if (active || touch){
             try{
-                let touchCoords = e.targetTouches[0];
-                let yTouch = touchCoords.clientY - 130;
-                console.log(yTouch);
-                let x = e.offsetX || touchCoords.clientX;
-                let y = e.offsetY || yTouch;
+                let x = e.offsetX || e.targetTouches[0].clientX;
+                let y = e.offsetY || e.targetTouches[0].clientY;
                 canvas.context.beginPath();
                 canvas.context.arc(x, y, 3, 0, Math.PI * 2);
                 canvas.context.fillStyle = "#00a";
