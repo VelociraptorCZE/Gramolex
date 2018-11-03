@@ -25,7 +25,7 @@ new Intro();
 let sentences = new Sentences().get();
 let parser = new Parser(sentences);
 let app = new App();
-let canvas = new Canvas().get();
+let canvas = new Canvas();
 app.setTitle(app.getInfo().name + " " + app.getInfo().version);
 app.setAuthor(app.getInfo().author);
 app.setVersion(app.getInfo().version);
@@ -71,7 +71,7 @@ export class Core{
         return document.querySelector(".alert--overlay");
     }
     init(){
-        canvas.context.clearRect(0, 0, 2000, 200);
+        canvas.clearCanvas();
         let buffer = parser.newSentence(this.pickedSentences);
         this.inputs.lexemes.focus();
         this.pickedSentences.length === sentences.length-1 ? this.pickedSentences = [] : this.pickedSentences.push(buffer.sentenceId);

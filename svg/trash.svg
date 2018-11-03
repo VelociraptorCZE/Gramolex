@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg width="32" height="32" version="1.1" viewBox="0 0 8.4667 8.4667" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <title>Trash can</title>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Trash can</dc:title>
+    <cc:license rdf:resource=""/>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Simon Raichl</dc:title>
+     </cc:Agent>
+    </dc:creator>
+    <dc:rights>
+     <cc:Agent>
+      <dc:title>MIT</dc:title>
+     </cc:Agent>
+    </dc:rights>
+    <dc:publisher>
+     <cc:Agent>
+      <dc:title>Simon Raichl</dc:title>
+     </cc:Agent>
+    </dc:publisher>
+    <dc:language>English</dc:language>
+    <dc:contributor>
+     <cc:Agent>
+      <dc:title>Simon Raichl</dc:title>
+     </cc:Agent>
+    </dc:contributor>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(0 -288.53)">
+  <g transform="translate(0 -.070871)" fill="none" stroke="#000" stroke-linecap="round">
+   <g stroke-linejoin="round">
+    <rect x="1.8874" y="290.36" width="5.0371" height="6.1775" stroke-width=".77073" style="paint-order:stroke markers fill"/>
+    <g stroke-width=".51883">
+     <path d="m3.2499 291.33-0.00324 4.3177"/>
+     <path d="m4.372 291.33-0.00324 4.3177"/>
+     <path d="m5.5531 291.33-0.00324 4.3177"/>
+    </g>
+   </g>
+   <path d="m1.6252 289.92 5.5057 0.0139" stroke-width=".83852"/>
+   <path d="m3.679 289.45 1.6188 0.016" stroke-width=".82057"/>
+  </g>
+ </g>
+</svg>

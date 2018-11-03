@@ -167,6 +167,12 @@ a{
     background: rgba(255, 255, 255, .5);
 }
 
+.gramolex-trash-button{
+    width: fit-content !important;
+    padding: 4px 6px 2px 6px !important;
+    margin-right: 6px;
+}
+
 .gramolex-info{
     animation: .5s move-to-bottom ease-in-out forwards;
     font-size: .65rem;

@@ -1,9 +1,13 @@
 import {Canvas} from "./modules/canvas.js";
 
-let canvas = new Canvas().get();
+let canvasScope = new Canvas();
+let canvas = canvasScope.get();
 
 export class Draw {
     constructor(){
+        document.getElementById("js-vanish-canvas").onclick = _ => {
+            canvasScope.clearCanvas();
+        };
         window.active = false;
         this.events = [
             ["mousedown", "mouseup"],
