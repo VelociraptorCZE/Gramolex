@@ -96,12 +96,12 @@ a{
 .gramolex-canvas{
     border-radius: 5px;
     border-bottom: 1px solid #fff;
-    margin: -10% auto auto auto;
     width: 2000px !important;
 }
 
 .gramolex-canvas-container{
     overflow: hidden;
+    margin: -20% auto auto auto;
 }
 
 .gramolex-header{
@@ -232,8 +232,8 @@ a{
         width: 80%;
     }
 
-    .gramolex-canvas{
-        margin-top: -25%;
+    .gramolex-canvas-container{
+        margin-top: -60%;
     }
 }
 
