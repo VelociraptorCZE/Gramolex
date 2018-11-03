@@ -197,7 +197,7 @@ a{
     display: flex;
     justify-items: center;
     flex-wrap: wrap;
-    height: 100vh;
+    height: 90vh;
 }
 
 .gramolex-task-container > *{
@@ -238,6 +238,10 @@ a{
 @media only screen and (max-width: 480px) {
     .gramolex-show-button.gramolex-button, .gramolex-input{
         width: 80%;
+    }
+
+    .gramolex-intro-container{
+        margin-top: -1.5rem;
     }
 }
 
