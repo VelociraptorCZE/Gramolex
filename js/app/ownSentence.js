@@ -25,7 +25,7 @@ export class OwnSentence{
     parse(param) {
         let buffer = new Parser().parseSentence(param);
         let params = "Lexemes: <strong>" + buffer.lexemes + "</strong><br>Phonemes: <strong>" + buffer.phonemes + "</strong><br>Graphemes: <strong>" + buffer.graphemes + "</strong>";
-        let phonemes = "<h4>Graphemes:</h4>" + buffer.graphemeArray.map(x => " " + x);
+        let phonemes = "<h4>Graphemes:</h4>" + buffer.graphemeArray.map(grapheme => " " + grapheme);
         new Alert({
                 title: "Your sentence",
                 text: params + phonemes
