@@ -100,6 +100,10 @@ a{
     width: 2000px !important;
 }
 
+.gramolex-canvas-container{
+    overflow: hidden;
+}
+
 .gramolex-header{
     font-variant-caps: all-petite-caps;
     font-size: 4rem;
