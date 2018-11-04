@@ -197,7 +197,8 @@ a{
     display: flex;
     justify-items: center;
     flex-wrap: wrap;
-    height: 90vh;
+    overflow-y: auto;
+    height: 100vh;
 }
 
 .gramolex-task-container > *{

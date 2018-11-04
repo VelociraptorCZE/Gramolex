@@ -28,6 +28,8 @@ export class Draw {
         this.drawEvents.forEach(event => {
             canvas.elem.addEventListener(event, e => {
                 this.draw(e, event === "touchmove");
+            }, {
+                passive: event === "touchmove"
             });
         });
         window.requestAnimationFrame(this.draw);
@@ -39,7 +41,7 @@ export class Draw {
                 let x = e.offsetX || e.targetTouches[0].clientX;
                 let y = e.offsetY || e.targetTouches[0].clientY;
                 canvas.context.beginPath();
-                canvas.context.arc(x, y, 3, 0, Math.PI * 2);
+                canvas.context.arc(x, y, 2, 0, Math.PI * 2);
                 canvas.context.fillStyle = "#00a";
                 canvas.context.fill();
                 canvas.context.closePath();
