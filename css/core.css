@@ -85,6 +85,10 @@ a{
     color: #fff;
 }
 
+input[type=color]{
+    transform: scale(0);
+}
+
 .alert--box-content{
     color: #000;
 }
@@ -169,10 +173,18 @@ a{
     background: rgba(255, 255, 255, .5);
 }
 
-.gramolex-trash-button{
-    width: fit-content !important;
+.gramolex-canvas-button{
+    width: 44px !important;
+    margin: 0 4px 0 0;
     padding: 4px 6px 2px 6px !important;
-    margin-right: 6px;
+}
+
+.gramolex-canvas-buttons{
+    margin-top: 2.5rem;
+    height: 44px;
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(0, 0, 0, .3);
 }
 
 .gramolex-info{

@@ -9,21 +9,42 @@ import {Canvas} from "./modules/canvas.js";
 
 let canvasScope = new Canvas();
 let canvas = canvasScope.get();
+let coords = {
+    x1: null,
+    y1: null,
+};
 
 export class Draw {
     constructor(){
-        document.getElementById("js-vanish-canvas").onclick = _ => {
+        this.elems = {
+            clear:            document.getElementById("js-vanish-canvas"),
+            taskContainer:    document.getElementById("js-task-container"),
+            strokeColorInput: document.getElementById("js-stroke-color-input"),
+            strokeColor:      document.getElementById("js-stroke-color")
+        };
+
+        canvas.context.strokeStyle = "#00a";
+        canvas.context.lineWidth = 3;
+
+        this.elems.clear.onclick = _ => {
             canvasScope.clearCanvas();
         };
+
         window.active = false;
+
         this.events = [
-            ["mousedown", "mouseup"],
-            [true, false],
-            [canvas.elem, window]
+            ["mousedown", "mouseup", "touchend"],
+            [true, false, false],
+            [canvas.elem, window, window]
         ];
+
         for (let i = 0; i < this.events[0].length; i++){
-            this.events[2][i].addEventListener(this.events[0][i], _ => window.active = this.events[1][i]);
+            this.events[2][i].addEventListener(this.events[0][i], _ => {
+                window.active = this.events[1][i];
+                this.setCoords(null, null);
+            });
         }
+
         this.drawEvents = ["mousemove", "touchmove"];
         this.drawEvents.forEach(event => {
             canvas.elem.addEventListener(event, e => {
@@ -32,9 +53,19 @@ export class Draw {
                 passive: event === "touchmove"
             });
         });
-        document.getElementById("js-task-container").addEventListener("scroll", e => {
+
+        this.elems.taskContainer.addEventListener("scroll", e => {
             canvas.elem.style.marginTop = -e.target.scrollTop + "px";
         });
+
+        this.elems.strokeColor.addEventListener("click", _ => {
+            this.elems.strokeColorInput.click();
+        });
+
+        this.elems.strokeColorInput.addEventListener("change", e => {
+            canvas.context.strokeStyle = e.target.value;
+        });
+
         window.requestAnimationFrame(this.draw);
     }
 
@@ -43,13 +74,27 @@ export class Draw {
             try{
                 let x = e.offsetX || e.targetTouches[0].clientX;
                 let y = e.offsetY || e.targetTouches[0].clientY - window.getComputedStyle(canvas.elem).getPropertyValue("margin-top").replace("px", "");
-                canvas.context.beginPath();
-                canvas.context.arc(x, y, 2, 0, Math.PI * 2);
-                canvas.context.fillStyle = "#00a";
-                canvas.context.fill();
-                canvas.context.closePath();
+                if (coords.x1 === null){
+                    this.setCoords(x, y);
+                }
+                else {
+                    canvas.context.beginPath();
+                    canvas.context.moveTo(...this.getCoords());
+                    canvas.context.lineTo(x, y);
+                    canvas.context.stroke();
+                    this.setCoords(x, y);
+                }
             }
             catch{}
         }
+    }
+
+    setCoords(x, y){
+        coords.x1 = x;
+        coords.y1 = y;
+    }
+
+    getCoords(){
+        return [coords.x1, coords.y1];
     }
 }

@@ -9,7 +9,7 @@ export class App{
     getInfo(){
         return {
             name:    "GRAMOLEX",
-            version: "beta 0.4.0",
+            version: "beta 0.4.1",
             author:  "Šimon Raichl"
         }
     }
