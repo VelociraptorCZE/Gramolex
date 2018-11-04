@@ -32,6 +32,9 @@ export class Draw {
                 passive: event === "touchmove"
             });
         });
+        document.getElementById("js-task-container").addEventListener("scroll", e => {
+            canvas.elem.style.marginTop = -e.target.scrollTop + "px";
+        });
         window.requestAnimationFrame(this.draw);
     }
 
@@ -39,7 +42,7 @@ export class Draw {
         if (active || touch){
             try{
                 let x = e.offsetX || e.targetTouches[0].clientX;
-                let y = e.offsetY || e.targetTouches[0].clientY;
+                let y = e.offsetY || e.targetTouches[0].clientY - window.getComputedStyle(canvas.elem).getPropertyValue("margin-top").replace("px", "");
                 canvas.context.beginPath();
                 canvas.context.arc(x, y, 2, 0, Math.PI * 2);
                 canvas.context.fillStyle = "#00a";
