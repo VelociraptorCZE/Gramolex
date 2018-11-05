@@ -23,8 +23,8 @@ export class Draw {
             strokeColor:      document.getElementById("js-stroke-color")
         };
 
-        canvas.context.strokeStyle = "#00a";
-        canvas.context.lineWidth = 3;
+        this.setCanvasSize();
+        this.initCanvas();
 
         this.elems.clear.onclick = _ => {
             canvasScope.clearCanvas();
@@ -47,10 +47,11 @@ export class Draw {
 
         this.drawEvents = ["mousemove", "touchmove"];
         this.drawEvents.forEach(event => {
+            let isTouch = event === "touchmove";
             canvas.elem.addEventListener(event, e => {
-                this.draw(e, event === "touchmove");
+                this.draw(e, isTouch);
             }, {
-                passive: event === "touchmove"
+                passive: isTouch
             });
         });
 
@@ -66,14 +67,24 @@ export class Draw {
             canvas.context.strokeStyle = e.target.value;
         });
 
+        window.addEventListener("resize", _ => {
+            this.setCanvasSize();
+            this.initCanvas();
+        });
+
         window.requestAnimationFrame(this.draw);
+    }
+
+    initCanvas(){
+        canvas.context.strokeStyle = this.elems.strokeColorInput.value;
+        canvas.context.lineWidth = 3;
     }
 
     draw(e, touch){
         if (active || touch){
             try{
                 let x = e.offsetX || e.targetTouches[0].clientX;
-                let y = e.offsetY || e.targetTouches[0].clientY - window.getComputedStyle(canvas.elem).getPropertyValue("margin-top").replace("px", "");
+                let y = e.offsetY || e.targetTouches[0].clientY - window.getComputedStyle(canvas.elem).getPropertyValue("margin-top").replace(/[a-z]/g, "");
                 if (coords.x1 === null){
                     this.setCoords(x, y);
                 }
@@ -96,5 +107,9 @@ export class Draw {
 
     getCoords(){
         return [coords.x1, coords.y1];
+    }
+
+    setCanvasSize(){
+        canvas.elem.setAttribute("width", document.body.getBoundingClientRect().width.toFixed() + "px");
     }
 }
