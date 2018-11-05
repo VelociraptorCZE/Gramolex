@@ -198,8 +198,12 @@ input[type=color]{
     width: 40%;
 }
 
+.gramolex-sentence-header{
+    line-height: 2.2rem;
+}
+
 .gramolex-sentence-header, .gramolex-sentence-task{
-    margin-top: 3rem;
+    margin: 3rem .5rem 0;
     text-shadow: 2px 2px 3px #1a1a1a;
 }
 
